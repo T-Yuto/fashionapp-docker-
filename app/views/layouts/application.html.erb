@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fashiontestapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="header">
+      <% if user_signed_in?%>
+        <%= link_to "ユーザ名： #{current_user.name}", root_path, class: "user"%>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post"%>
+        <div class="menu">
+          <button id="menu">MENU</button>
+          <ul class="menulist">
+            <li><a href="/"><button class="menu edit_btn">トップへ</button></a></li>
+            <li><a href="/users/<%= current_user.id %>"><button class="menu mypage_btn">マイページ</button></a></li>
+            <li><a href="/items/new"><button class="menu new_btn">登録</button></a></li>
+          </ul>
+        </div>
+      <% else %>
+        <%= link_to "新規登録", new_user_registration_path, class: "user" %>
+        <%= link_to "ログイン", new_user_session_path, class: "post" %>
+      <% end%>
+    </header>
+    <div class="body">
+    <div class="main">
+    <%= yield %>
+    </div>
+    </div>
+<div class="footer">Fashion Auto Setting.</div>
+  </body>
+</html>

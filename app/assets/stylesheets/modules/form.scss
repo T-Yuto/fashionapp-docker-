@@ -1,0 +1,119 @@
+.form {
+    text-align: center;
+    width:  100%;
+    min-height: 100%;
+    form {
+        display: grid;
+        .up_image {
+            grid-area: up;
+        }
+        .down_image {
+            grid-area: down;
+        }
+        input[type="submit"] {
+            grid-area: submit;
+        }
+        .up_image,.down_image {
+            display: grid;
+            grid-template:
+            "..... ..... ..... ..... ....." 20px
+            "..... ..... title ..... ....." 30px
+            "..... ..... ..... ..... ....." 30px
+            "..... ..... name  ..... ....." 30px
+            "..... ..... ..... ..... ....." 30px
+            "..... ..... file  ..... ....." 30px
+            "..... ..... ..... ..... ....." 20px
+            "..... image image image ....." 
+            "..... ..... ..... ..... ....." 20px
+            /10px 1fr 300px 1fr 10px;
+            .title {
+                grid-area: title;
+            }
+            input[type="text"] {
+                grid-area: name;
+            }
+            input[type="file"] {
+                grid-area: file;
+            }
+            .previews {
+                grid-area: image;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .title {
+                cursor: pointer;
+                font-size: 24px;
+            }
+            input[type="text"] {
+                padding: 0 10px;
+            }
+            input[type="file"] {
+                cursor: pointer;
+            }
+            .previews {
+                border: 2px solid white;
+                text-align: center;
+                margin: 5px auto;
+                display:    flex;
+                flex-wrap:  wrap;
+                flex:     1 1 0%;
+                width:     600px;
+                min-height: 120px;
+                div {
+                    background-color: white;
+                    margin:  10px;
+                    width:  100px;
+                    height: 100px;
+                    img {
+                        max-width:  100px;
+                        max-height: 100px;
+                    }
+                }
+            }
+        }
+        input[type="submit"] {
+            background-color: skyblue;
+            border-radius: 20px;
+            border:        none;
+            cursor:     pointer;
+            color: whitesmoke;
+            &:hover {
+                background-color: turquoise;
+                color:  orange;
+            }
+        }
+    }
+}
+@media screen and (min-width: 901px) {
+    form {
+        grid-template:
+        "..... ..... ....."
+        "..... up    ....." minmax(400px, auto)
+        "..... ..... ....."
+        "..... down  ....." 60px
+        "..... down  ....." minmax(400px, auto)
+        "..... ..... .....";
+        input[type="submit"] {
+            position: absolute;
+            right:   10px;
+            bottom: 100px;
+            width:  120px;
+            height: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    form {
+        grid-template:
+        "..... .....  ..... ..... ....." 20px
+        "..... up     up    up    ....." minmax(400px, auto)
+        "..... .....  ..... ..... ....." 10px
+        "..... down   down  down  ....." minmax(400px, auto)
+        "..... .....  ..... ..... ....." 50px
+        "..... ..... submit ..... ....." 100px
+        "..... .....  ..... ..... ....." 20px
+        /20px 1fr 200px 1fr 20px;
+    }
+}

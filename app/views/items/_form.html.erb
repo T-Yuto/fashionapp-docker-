@@ -1,0 +1,24 @@
+<%# <%= f.hidden_field :image_cache %>
+<%= form_with(model: @item, local: true) do |f| %>
+    <div class= "up_image">
+        <label for= "item_up_images_attributes_image" class="title">SHIRTを選択</label>
+        <%= f.fields_for :up_images do |image| %>
+            <%= image.text_field :name, maxlength: 30, placeholder: "30文字以内で名前をつけれます。" %>
+            <%= image.file_field :image %>
+        <% end %>
+        <div class="up_image previews" id= "preview-up1">
+        </div>
+    </div>
+
+    <div class= "down_image">
+        <label for= "item_down_images_attributes_image" class="title">PANTSを選択</label>
+        <%= f.fields_for :down_images do |image| %>
+            <%= image.text_field :name, maxlength: 30, placeholder: "30文字以内で名前をつけれます。" %>
+            <%= image.file_field :image %>
+        <% end %>
+        <div class="down_image previews" id= "preview-down1">
+        </div>
+    </div>
+    <%= f.submit "登録する" %>
+    
+<% end %>

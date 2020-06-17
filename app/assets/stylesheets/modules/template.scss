@@ -1,0 +1,91 @@
+body {
+    background-color: whitesmoke;
+    min-height: 100vh;
+    min-width:  600px;
+    display: grid;
+    grid-template:
+    "header" 60px
+    "body  " 1fr
+    "footer" 30px;
+    .header {
+        grid-area: header;
+    }
+    .body {
+        grid-area: body;
+    }
+    .footer {
+        grid-area: footer;
+    }
+    .header {
+        background-color: skyblue;
+        display: grid;
+        .user {
+            grid-area:  user;
+        }
+        .post {
+            grid-area:  post;
+        }
+        .menu {
+            grid-area:  menu;
+        }
+        a {
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+            &:hover {
+                color: olivedrab;
+            }
+        }
+        button{
+            background-color: skyblue;
+            border:  none;
+            border-radius: 5px;
+            font-size:     20px;
+            color: whitesmoke;
+            cursor: pointer;
+            width: 150px;
+            height: 60px;
+            &:hover {
+                background-color: turquoise;
+                color: lightcoral;
+            }
+        }
+        .menu {
+            &:hover ul {
+                display: block;
+            }
+            ul {
+                display: none;
+            }
+        }
+    }
+    .main {
+        width:  100%;
+        height: 100%;
+    }
+    .footer {
+        background-color: slategray;
+        text-align: center;
+        color: white;
+    }
+    
+}
+@media screen and (min-width: 721px) {
+    .header {
+        grid-template:
+        "..... ..... ..... ..... ..... ....." 
+        "..... user  ..... post  ..... menu " 1fr
+        "..... ..... ..... ..... ..... ....." 
+        /20px 100px 30px 100px auto 150px;
+    }
+}
+@media screen and (max-width: 720px) {
+    .header {
+        grid-template:
+        "..... ..... ..... ..... ..... ....." 
+        "..... user  ..... post  ..... menu " 1fr
+        "..... ..... ..... ..... ..... ....." /
+        10px auto 20px auto 1fr 150px;
+    }
+
+}
